@@ -2,52 +2,348 @@
 <html>
 	<head>
 		<title>Index</title>
-		<meta charset="utc-8"> 
+		<meta charset="UTF-8"> 
 
 		<!-- Meta Responsive Design  -->
 		<meta name='viewport', content='width=device-width, maximum-scale=1.0 user-scalable=no'>
 
+		<!-- Para css-->
 		<link rel='stylesheet' type="text/css" href='css/style.css' />
 		<link rel='stylesheet' type="text/css" href='css/style_resp_425.css' />
 		<link rel='stylesheet' type="text/css" href='css/style_resp_768.css' />
 		<link rel='stylesheet' type="text/css" href='css/style_resp_1024' />
 		<link rel='stylesheet' type="text/css" href='css/style_resp_1440' />
 
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/design_control.js"></script>
 
 	</head>
 
 	<body>
-		<section class="toolbar bg_primary shadow_raised">
-			<button class="menu_button">
-				<img src="icons/menu.png" class="icon v_align_middle">	
+		<section class="toolbar bg_primary shadow_flat">
+			<button class="menu_button" id="menu_button" onclick="showMenu( true );">
+				<img src="icons/menu.png" class="icon v_align_middle" />
 			</button>
 			<div class="toolbar_in">
-				<div class="logo_container">
-					<img src="icons/logo_white.png" class="icon v_align_middle"><h1 class="font_white title_smaller">
-						Shop It
-					</h1>
-				</div><div class="right_info">
-					<div class="search_bar_container">
-						<img id="search-icon" src="icons/magnify_white.png" class="icon v_align_middle">
-						<div class="search_bar">
+				<div class="logo_container font_white v_align_top">
+					<img src="icons/logo_white.png" class="icon v_align_middle" /><h1 class="title_smaller v_align_middle">Moon Shop!</h1>
+				</div><div class="right_info font_white">
+					<div class="search_bar_container v_align_top">
+						<img id="search-icon" src="icons/magnify_white.png" class="icon v_align_middle" onclick="hideSearchbar( true );" />
+						<div class="search_bar" id="search-bar">
 							<div class="text_field bg_white border_radius shadow_flat">
 								<input type="text" name="" placeholder="Buscar un producto">
 								<button type="submit">
 									<img src="icons/magnify_black.png" class="icon opacity" />
 								</button>
-								<button class="close hover_black" >
+								<button class="close hover_black" onclick="hideSearchbar( false );">
 									<img src="icons/close_black.png" class="icon opacity" />
 								</button>
 							</div>
 						</div>
-						
-					</div>
+					</div><span class="v_align_top font_big pd_right_16 info_icons">
+						<span class="mr_right_4 hover_black" onclick="showCart( true );">
+							<div class="pd_right_4 pd_left_4">
+								<img src="icons/cart_white.png" class="icon mr_right_8 v_align_middle" />
+								<b id="cart-items" class="v_align_middle">1</b>
+							</div>
+						</span>
+						<span class="mr_left_4">
+							<b class="title_smaller v_align_middle mr_right_4" id="cart-price">$</b>
+							<b id="cart-price" class="v_align_middle">424.86</b>
+						</span>
+					</span>
 				</div>
 			</div>
 		</section>
 		<div class="toolbar_back"></div>
+
+
+		<article class="menu shadow_flat bg_white" id="menu">
+			<div class="close text_align_right">
+				<button class="text_align_center hover_black" onclick="showMenu( false );">
+					<img src="icons/close_black.png" class="icon opacity v_align_middle" />
+				</button>
+			</div>
+			<section class="profile_container">
+				<div class="pd_24 text_align_center">
+					<div class="img_container circle margin_auto">
+						<img src="icons/default_profile.png" />
+					</div>
+					<div class="name mr_top_24">
+						<a href="" class="font_gray">
+							<h3 class="title_smaller">
+								Austin Andrews
+							</h3>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section class="list">
+				<nav class="menu_options">
+					<a href="">
+						<li class="pd_16 hover_black">
+							<img src="icons/home_black.png" class="icon opacity">
+							<strong>
+								Inicio
+							</strong>
+						</li>
+					</a>
+					<a href="">
+						<li class="pd_16 hover_black">
+							<img src="icons/shopping_black.png" class="icon opacity">
+							<strong>
+								Historial de compras
+							</strong>
+						</li>
+					</a>
+					<a href="">
+						<li class="pd_16 hover_black">
+							<img src="icons/cart_black.png" class="icon opacity">
+							<strong>
+								Carrito
+							</strong>
+						</li>
+					</a>
+					<a href="">
+						<li class="pd_16 hover_black">
+							<img src="icons/account_black.png" class="icon opacity">
+							<strong>
+								Cuenta
+							</strong>
+						</li>
+					</a>
+				</nav>
+			</section>
+			<section class="bottom_actions">
+				<div class="text_align_right">
+					<button class="font_red pd_16 font_big">
+						Cerrar sesión
+					</button>
+				</div>
+			</section>
+		</article>
+
 		
+		<article class="main_container bg_black">
+
+			<div class="carousel_indicator">
+				<div class="inner" id="main-carousel-indicator">
+					<i class="point circle indicator"></i>
+					<span class="point circle"></span>
+					<span class="point circle"></span>
+					<span class="point circle"></span>
+					<span class="point circle"></span>
+				</div>
+			</div>
+
+			<div class="parallax_img">
+
+				<div class="sub_container" id="carousel">
+
+					<section class="main_block font_white">
+						<div class="img_container">
+							<img src="http://wallpapershome.com/images/pages/pic_h/11100.jpg" ajustable>
+						</div>
+						<div class="info_container bg_opacity">
+							<div class="center_info">
+								<h1 class="title_big">
+									Welcome!
+								</h1>
+								<h3 class="title_smaller">
+									Make shopping in the space.
+								</h3>
+								<br>
+								<button class="border_blue pd_12 mr_top_14 border_radius" onclick="popup( true,'#popup_1')">
+									<h3 class="font_big font_light">
+										Log In
+									</h3>		
+								</button>
+							</div>
+						</div>
+					</section>
+
+					<section class="main_block font_white">
+						<div class="img_container">
+							<img src="images/planet.jpg" ajustable>
+						</div>
+						<div class="info_container bg_opacity">
+							<div class="center_info">
+								<h1 class="title_big">
+									Welcome!
+								</h1>
+								<h3 class="title_smaller">
+									Make shopping in the space.
+								</h3>
+								<br>
+								<button class="border_blue pd_12 mr_top_14 border_radius" onclick="popup( true,'#popup_1')">
+									<h3 class="font_big font_light">
+										Log In
+									</h3>		
+								</button>
+							</div>
+						</div>
+					</section>
+
+					<section class="main_block font_white">
+						<div class="img_container">
+							<img src="images/planets.jpg" ajustable>
+						</div>
+						<div class="info_container bg_opacity">
+							<div class="center_info">
+								<h1 class="title_big">
+									Welcome!
+								</h1>
+								<h3 class="title_smaller">
+									Make shopping in the space.
+								</h3>
+								<br>
+								<button class="border_blue pd_12 mr_top_14 border_radius" onclick="popup( true,'#popup_1')">
+									<h3 class="font_big font_light">
+										Log In
+									</h3>		
+								</button>
+							</div>
+						</div>
+					</section>
+
+					<section class="main_block font_white">
+						<div class="img_container">
+							<img src="http://cdn.playbuzz.com/cdn/28c57e00-b54e-41bd-9f24-3123835537a8/53d4a4b3-20e7-46f3-93e1-467054ef498e.jpg" ajustable>
+						</div>
+						<div class="info_container bg_opacity">
+							<div class="center_info">
+								<h1 class="title_big">
+									Welcome!
+								</h1>
+								<h3 class="title_smaller">
+									Make shopping in the space.
+								</h3>
+								<br>
+								<button class="border_blue pd_12 mr_top_14 border_radius" onclick="popup( true,'#popup_1')">
+									<h3 class="font_big font_light">
+										Log In
+									</h3>		
+								</button>
+							</div>
+						</div>
+					</section>
+
+				</div>
+
+			</div>
 			
+		</article>
+		
+
+		<article>
+			<div class="responsive_padding">
+				<h1 class="title_bigger mr_bottom_48 font_white font_normal">
+					Some products you could be interested.
+				</h1>
+				<section class="responsive_col text_align_center">
+					<div class="col_3 text_align_left">
+						<div class="pd_8 product">
+							<div class="bg_white shadow_flat">
+								<div class="pr_img">
+									<a href="producto.html">
+										<div class="img_container">
+											<img  src="https://www.tesla.com/tesla_theme/assets/img/homepage/homepage-hero@2x.jpg?20170419" ajustable />
+										</div>
+									</a>
+								</div>
+								<div class="product_info">
+									<div class="pd_24">
+										<div class="info mr_bottom_32">
+											<h2 class="title_small">
+												Name: Tesla Car
+											</h2>
+											<div class="mr_top_16">
+												<h3 class="font_big font_gray">
+													Description:
+												</h3>
+												<p class="font_big pd_8">
+													It's a car powerful and awesome.
+												</p>
+											</div>
+										</div>
+										<div class="add_cart_container text_align_center mr_bottom_16">
+											<h4 class="font_gray mr_bottom_8">
+												Add to Carrito
+											</h4>
+											<button class="circle hover_black" title="Quitar">
+												<img class="icon opacity" src="icons/minus_black.png">
+											</button>
+											<span class="pd_8 title_smaller v_align_middle">
+												0
+											</span>
+											<button class="circle hover_black" title="Agregar">
+												<img class="icon opacity" src="icons/plus_black.png">
+											</button>
+										</div>
+										<div class="price_container text_align_right">
+											<div class="prices">
+												<div class="discount">
+													<div class="opacity font_big mr_bottom_4">
+														Discount 15%
+													</div>
+													<h2 class="opacity title_smaller">
+														<strike>
+															$499.84
+														</strike>
+													</h2>
+												</div>
+												<h2 class="title_medium mr_top_16 total">
+													$424.86
+												</h2>
+											</div>
+										</div>
+										<p class="text_align_left mr_top_8">
+											<a href="producto.html" target="_blank" class="font_gray font_bold">See More</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</article>			
+
+
+		<article style="height: 500px;">
+		<div class="img_container parallax_img" style="height: 100%; width: 100%;" >
+			<img src="http://www.spacex.com/sites/spacex/files/itl_streak.jpg" ajustable>
+		</div>
+		</article>
+		
+		<article style="height: 500px;">	
+		<div class="img_container parallax_img" style="height: 100%; width: 100%;">
+			<img src="https://www.tesla.com/tesla_theme/assets/img/models/section-hero-background@2x.jpg?20170420" ajustable>
+		</div>
+		</article>
+
+
+		<section class="pop_up_container" id="popup_1">
+			<div class="pop_up_back"></div>
+			<div class="pop_up">
+				<div class="inner">	
+					<div class="bg_white shadow_flat">
+						<div class="pd_24">
+							<div class="text_align_right">
+								<button class="pd_8 hover_black" onclick="popup( false,'#popup_1')">
+									<img src="icons/close_black.png" class="icon">
+								</button>
+							</div>
+							<h1 class="title_big">
+								STARTING...
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>			
+
+		</section>
 
 			<!-- <div class="cuadro">
 				<div class="cuadro_mini"> </div><div class="cuadro_mini cuadro_mini_2">
